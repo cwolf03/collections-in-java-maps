@@ -1,5 +1,9 @@
 package com.theironyard;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * For this exercise you will be making a class with one static method that is a
  * variation on the classic FizzBuzz exercises. Follow the instructions below.
@@ -38,5 +42,29 @@ public class FizzBuzz {
      * @param max The maximum number to iterate to when generating the HashMap
      * @return A HashMap of Strings mapped to an Array of Integers containing keys and values for fizz, buzz, and fizzbuzz
      */
+        public static HashMap<String, ArrayList<Integer>> asMap(int max) {
+            HashMap<String, ArrayList<Integer>> newFizz = new HashMap<>();
+
+            ArrayList<Integer> fizz = new ArrayList<>();
+            ArrayList<Integer> buzz = new ArrayList<>();
+            ArrayList<Integer> fizzBuzz = new ArrayList<>();
+
+
+            for (int x = 1; x <= max; x++) {
+                if (x % 3 == 0 && x % 5 == 0) {
+                    fizzBuzz.add(x);
+                }else if (x % 3 == 0) {
+                    fizz.add(x);
+                }else if (x % 5 == 0) {
+                    buzz.add(x);
+                }
+
+                newFizz.put("fizz", fizz);
+                newFizz.put("buzz", buzz);
+                newFizz.put("fizzbuzz", fizzBuzz);
+
+            }
+            return newFizz;
+        }
 
 }
